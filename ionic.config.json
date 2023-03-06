@@ -1,0 +1,8 @@
+{
+  "name": "Que cocinar?",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "324ff494"
+}
