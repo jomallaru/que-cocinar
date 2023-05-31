@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda</title>
+    <link rel="stylesheet" type="text/css" href="../css/busqueda.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="../index.html">Inicio</a>
+        </div>
+        <div class="nav-right">
+            <a href="../page/recetas.html">Agregar Receta</a>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <form id="search-form">
+            <input type="text" id="search-input" name="search-input">
+            <button type="submit" id="search-button">Buscar</button>
+            <button type="button" id="clear-button">Limpiar</button>
+        </form>
+
+        <div class="card" id="result-card">
+            <div class="card">
+                <div class="card-image">
+                    <img src="imagen.jpg" alt="Imagen">
+                </div>
+                <div class="card-content">
+                    <h2>Título</h2>
+                    <h3>Subtítulo 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nulla sagittis, lobortis lorem
+                        vel, tincidunt ipsum. Donec a ex libero.</p>
+                    <h3>Subtítulo 2</h3>
+                    <p>Phasellus auctor semper augue, sed ultricies justo malesuada vel. Morbi eget efficitur nisi. Nam
+                        et odio id velit auctor bibendum eu sed massa.</p>
+                    <h3>Subtítulo 3</h3>
+                    <p>Aliquam lacinia, ex vitae elementum luctus, nibh magna bibendum ex, eu bibendum mauris magna ac
+                        velit. Sed vel dolor dignissim, pretium lorem non, gravida est.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script>
+        const searchForm = document.querySelector('#search-form');
+        const resultCard = document.querySelector('#result-card');
+        const clearButton = document.querySelector('#clear-button');
+
+        searchForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            resultCard.style.display = 'block';
+        });
+
+        clearButton.addEventListener('click', function () {
+            resultCard.style.display = 'none';
+            searchForm.reset();
+        });
+
+    </script>
+</body>
+
+</html>

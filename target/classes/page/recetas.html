@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas</title>
+    <link rel="stylesheet" type="text/css" href="../css/recetas.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="../index.html">Inicio</a>
+        </div>
+        <div class="nav-right">
+            <a href="#">Ingresar</a>
+        </div>
+    </nav>
+    <details>
+        <summary>Agregar Receta</summary>
+        <div class="card">
+            <!-- Contenido de la tarjeta aquí -->
+
+            <form th:action="@{/recetas}" th:objeto="${recetas}" method="post">
+                <div class="form- group">
+                    <label>Nombre de la receta</label>
+                    <input type="text" name="nombre" th:field="*{nombre}" class="form-control" required>
+
+                </div>
+
+                <div class="form- group">
+                    <label>Ingredientes</label>
+                    <input type="text" name="ingredientes" th:field="*{ingredientes}" class="form-control" required>
+                </div>
+
+                <div class="form- group">
+                    <label>Preparacion</label>
+                    <input type="text" name="preparacion" th:field="*{preparacion}" class="form-control" required>
+                </div>
+
+                <div class="form- group">
+                    <label>Tiempo</label>
+                    <input type="number" min="0" max="5000" step="5" onchange="updateTime(this.value)"  name="tiempo" th:field="*{tiempo}" class="form-control" required>
+                    <span id="time"></span>
+                </div>
+
+                <div>
+                    <label for="dificultad">Dificultad</label>
+                    <select id="dificultad" name="dificultad" required>
+                        <option value="">Seleccione la dificultad</option>
+                        <option value="Fácil" th:field="*{dificultad}">Fácil</option>
+                        <option value="Intermedia" th:field="*{dificultad}">Intermedia</option>
+                        <option value="Difícil" th:field="*{dificultad}">Difícil</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit" onclick="creaYactualizarreceta">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </details>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Ingredientes</th>
+                <th>Preparación</th>
+                <th>Tiempo</th>
+                <th>Dificultad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr th:each="recetas : ${Recetas}">
+                <td th:text="${recetas.nombre}"></td>
+                <td th:text="${recetas.ingredientes}"></td>
+                <td th:text="${recetas.preparacion}"></td>
+                <td th:text="${recetas.tiempo}"></td>
+                <td th:text="${recetas.dificultad}"></td>
+
+                <td>
+                    <a th:href="@{/editar/{id}(id=${recetas.id})}">Editar</a> |
+                    <a th:href="@{/borrar/{id}(id=${recetas.id})}">Borrar</a>
+                </td>
+            </tr>
+           
+        </tbody>
+    </table>
+    
+    <script>
+        function updateTime(minutes) {
+          const hours = Math.floor(minutes / 60);
+          const mins = minutes % 60;
+          const timeSpan = document.getElementById('time');
+          timeSpan.textContent = `${hours} horas ${mins} minutos`;
+        }
+      </script>
+</body>
+
+</html>

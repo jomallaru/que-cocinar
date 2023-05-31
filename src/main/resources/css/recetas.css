@@ -1,0 +1,114 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #b45617;
+    color: white;
+  }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+nav form {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+nav input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+nav button[type="submit"] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: #ff7300;
+  cursor: pointer;
+}
+
+nav a[href="#"] {
+  margin-right: 0;
+}
+
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  textarea,
+  select {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    
+  }
+  
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    text-decoration: underline;
+  }
+  summary {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #eee;
+    padding: 10px;
+    border: none;
+  }
+  
+  details[open] summary {
+    background-color: #ccc;
+  }
+  
